@@ -4,8 +4,8 @@ $servername = "localhost";
 $serverUsername = "cimcveigh";
 $serverPassword = "password";
 $dbname = "website";
-$enteredUsername = 'username';
-$enteredPassword = 'password'
+$enteredUsername = $_POST['username'];
+$enteredPassword = $_POST['password'];
 
 // Create connection
 $conn = new mysqli($servername, $serverUsername, $serverPassword, $dbname);
@@ -30,8 +30,8 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 echo '<br />';
-echo $_POST[$enteredUsername];
+echo $enteredUsername;
 echo '<br />';
-echo $_POST[$password];
+echo $enteredPassword;
 
 ?>
