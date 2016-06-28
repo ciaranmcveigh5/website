@@ -4,8 +4,8 @@ $servername = "localhost";
 $serverUsername = "cimcveigh";
 $serverPassword = "password";
 $dbname = "website";
-$enteredUsername = 'username';
-$enteredPassword = 'password'
+$enteredUsername = $_POST['username'];
+$enteredPassword = $_POST['password'];
 
 // Create connection
 $conn = new mysqli($servername, $serverUsername, $serverPassword, $dbname);
