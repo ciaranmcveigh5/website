@@ -12,11 +12,11 @@ $formValid = true;
 $errorMessage = "";
 
 // Validates Username and checks its not in database
-if (empty($enteredUsername)) {
+/*if (empty($enteredUsername)) {
         $errorMessage = "You Forgot to Enter Your Username!";
         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
         $formValid = false;
-} 
+}*/ 
 
 $checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
 
