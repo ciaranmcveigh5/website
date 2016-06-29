@@ -26,37 +26,37 @@ if(mysqli_num_rows($checkUsernameSql)>=1) {
     echo "<script type='text/javascript'>alert('$errorMessage');</script>";
     $formValid = false;
 }
-else {
-	//enter situation
-}  
+// else {
+// 	//enter situation
+// }  
     
 // Validates password & confirm passwords.
-if(!empty($enteredPassword) && ($enteredPassword] == $confirmedPassword)) {
-    if (strlen($enteredPassword) <= '8') {
-        $errorMessage = "Your Password Must Contain At Least 8 Characters!";
-        echo "<script type='text/javascript'>alert('$errorMessage');</script>";
-        $formValid = false;
-    }
-    elseif(!preg_match("#[0-9]+#",$enteredPassword)) {
-        $errorMessage = "Your Password Must Contain At Least 1 Number!";
-        echo "<script type='text/javascript'>alert('$errorMessage');</script>";
-        $formValid = false;
-    }
-    elseif(!preg_match("#[A-Z]+#",$enteredPassword)) {
-        $errorMessage = "Your Password Must Contain At Least 1 Capital Letter!";
-        echo "<script type='text/javascript'>alert('$errorMessage');</script>";
-        $formValid = false;
-    }
-    elseif(!preg_match("#[a-z]+#",$enteredPassword)) {
-        $errorMessage = "Your Password Must Contain At Least 1 Lowercase Letter!";
-        echo "<script type='text/javascript'>alert('$errorMessage');</script>";
-        $formValid = false;
-    } else {
-        $errorMessage = "Please Check You've Entered Or Confirmed Your Password!";
-        echo "<script type='text/javascript'>alert('$errorMessage');</script>";
-        $formValid = false;
-    }
-}
+// if(!empty($enteredPassword) && ($enteredPassword] == $confirmedPassword)) {
+//     if (strlen($enteredPassword) <= '8') {
+//         $errorMessage = "Your Password Must Contain At Least 8 Characters!";
+//         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
+//         $formValid = false;
+//     }
+//     elseif(!preg_match("#[0-9]+#",$enteredPassword)) {
+//         $errorMessage = "Your Password Must Contain At Least 1 Number!";
+//         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
+//         $formValid = false;
+//     }
+//     elseif(!preg_match("#[A-Z]+#",$enteredPassword)) {
+//         $errorMessage = "Your Password Must Contain At Least 1 Capital Letter!";
+//         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
+//         $formValid = false;
+//     }
+//     elseif(!preg_match("#[a-z]+#",$enteredPassword)) {
+//         $errorMessage = "Your Password Must Contain At Least 1 Lowercase Letter!";
+//         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
+//         $formValid = false;
+//     } else {
+//         $errorMessage = "Please Check You've Entered Or Confirmed Your Password!";
+//         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
+//         $formValid = false;
+//     }
+// }
 
 // Create connection
 $conn = new mysqli($servername, $serverUsername, $serverPassword, $dbname);
