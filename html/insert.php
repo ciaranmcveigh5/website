@@ -31,25 +31,23 @@ else {
 }  
     
 // Validates password & confirm passwords.
-if(!empty($_POST["password"]) && ($_POST["password"] == $_POST["cpassword"])) {
-    $password = test_input($_POST["password"]);
-    $cpassword = test_input($_POST["cpassword"]);
-    if (strlen($_POST["password"]) <= '8') {
+if(!empty($enteredPassword) && ($enteredPassword] == $confirmedPassword)) {
+    if (strlen($enteredPassword) <= '8') {
         $errorMessage = "Your Password Must Contain At Least 8 Characters!";
         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
         $formValid = false;
     }
-    elseif(!preg_match("#[0-9]+#",$password)) {
+    elseif(!preg_match("#[0-9]+#",$enteredPassword)) {
         $errorMessage = "Your Password Must Contain At Least 1 Number!";
         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
         $formValid = false;
     }
-    elseif(!preg_match("#[A-Z]+#",$password)) {
+    elseif(!preg_match("#[A-Z]+#",$enteredPassword)) {
         $errorMessage = "Your Password Must Contain At Least 1 Capital Letter!";
         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
         $formValid = false;
     }
-    elseif(!preg_match("#[a-z]+#",$password)) {
+    elseif(!preg_match("#[a-z]+#",$enteredPassword)) {
         $errorMessage = "Your Password Must Contain At Least 1 Lowercase Letter!";
         echo "<script type='text/javascript'>alert('$errorMessage');</script>";
         $formValid = false;
