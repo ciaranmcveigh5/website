@@ -24,13 +24,17 @@
 
 	  	</script>
 
-	  	<form action="insert.php" method="post" onsubmit="">
+	  	<form action="insert.php" method="post" onsubmit="return checkPassword(password)">
 	  	  
 	  		Username: <input type="text" name="username" maxlength="50" placeholder="Username" value="" />
 
 	  		<br />
 
 	  		Password: <input type="password" name="password" maxlength="50" placeholder="Password" value="" />
+
+	  		<br />
+
+	  		Confirm Password: <input type="password" name="confirmedPassword" maxlength="50" placeholder="Password" value="" />
 
 	  		<br />
 
