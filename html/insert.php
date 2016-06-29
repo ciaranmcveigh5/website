@@ -20,7 +20,6 @@ if (empty($enteredUsername)) {
 
 $checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
 
-}
 if(mysqli_num_rows($checkUsernameSql)>=1) {
     $errorMessage = "name already exists";
     echo "<script type='text/javascript'>alert('$errorMessage');</script>";
@@ -30,7 +29,7 @@ if(mysqli_num_rows($checkUsernameSql)>=1) {
 // 	//enter situation
 // }  
     
-Validates password & confirm passwords.
+//Validates password & confirm passwords.
 if(!empty($enteredPassword) && ($enteredPassword] == $confirmedPassword)) {
     if (strlen($enteredPassword) <= '8') {
         $errorMessage = "Your Password Must Contain At Least 8 Characters!";
