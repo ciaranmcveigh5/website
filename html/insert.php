@@ -41,7 +41,7 @@ if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
         $formValid = false;
 }*/ 
 
-$checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
+$checkUsernameSql = mysql_query("SELECT * FROM website WHERE username=$enteredUsername");
 
 echo $checkUsernameSql;
 
