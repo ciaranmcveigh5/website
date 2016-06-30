@@ -100,6 +100,8 @@ if ($formValid==true) {
 	} else {
     	echo "Error: " . $insertDataSql . "<br>" . $conn->error;
 	}
+} else {
+	header ("Location: login_form.html");
 }
 
 /*if (mysqli_query($conn, $insertDataSql)) {
