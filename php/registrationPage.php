@@ -5,12 +5,8 @@ $servername = "localhost"; // change to public ip of another vm if mysql is runn
 $serverUsername = "cimcveigh";
 $serverPassword = "password";
 $dbname = "website";
-$enteredUsername = $_POST['username'];
-$enteredPassword = $_POST['password'];
-$confirmedPassword = $_POST['confirmedPassword'];
 $formValid = true;
 $errorMessage = "";
-$required = array('username', 'password', 'confirmedPassword');
 
 function quote_smart($value, $handle) {
 
@@ -23,6 +19,14 @@ function quote_smart($value, $handle) {
    }
    return $value;
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
+
+	$enteredUsername = $_POST['username'];
+    $enteredPassword = $_POST['password'];
+    $confirmedPassword = $_POST['confirmedPassword'];
+    $required = array('username', 'password', 'confirmedPassword');
+
 
 // Ensure fields are not empty
 foreach($required as $field) {
@@ -70,6 +74,8 @@ if ($formValid==true) {
 }
 
 $conn->close();
+
+}
 
 ?>
 

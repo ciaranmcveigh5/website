@@ -6,10 +6,7 @@ $serverUsername = "cimcveigh";
 $serverPassword = "password";
 $dbName = "website";
 $tableName = "nametable"
-$enteredUsername = $_POST['username'];
-$enteredPassword = $_POST['password'];
 $errorMessage = "";
-$required = array('username', 'password');
 
 
 
@@ -34,9 +31,11 @@ function quote_smart($value, $handle) {
 
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){ // check if the form has been posted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { // check if the form has been posted
 	$enteredUsername = $_POST['username'];
 	$enteredPassword = $_POST['password'];
+
+	$required = array('username', 'password');
 
 	$enteredUsername = htmlspecialchars($enteredUsername); //deal with unwanted HTML (scripting attacks)
 	$enteredPassword = htmlspecialchars($enteredPassword);
