@@ -39,14 +39,14 @@ foreach($required as $field) {
 if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
 
 }else {
-	$errorMessage = "password must contain one upper case letter one lower case letter and one number"
+	$errorMessage = "password must contain one upper case letter one lower case letter and one number";
 	$formValid = false;
 }
 
 $checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
 
 if($checkUsernameSql) {
-	$errorMessage = "username already in use"
+	$errorMessage = "username already in use";
 	$formValid = false;
 }
 
