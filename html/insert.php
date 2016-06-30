@@ -11,6 +11,29 @@ $confirmedPassword = $_POST['confirmedPassword'];
 $formValid = true;
 $errorMessage = "";
 
+$required = array('username', 'password', 'confirmedPassword');
+
+// Ensure fields are not empty
+foreach($required as $field) {
+	if(empty($_POST[$field])) {
+		$formValid = false;
+		if($formValid==false) {
+			echo "Error, empty fields";
+			echo '<br />';
+			break;
+		}
+	}
+}
+
+if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
+	echo 'secure password';
+	echo '<br />';
+}else {
+	echo 'insecure password';
+	echo '<br />';
+	$formValid = false;
+}
+
 // Validates Username and checks its not in database
 /*if (empty($enteredUsername)) {
         $errorMessage = "You Forgot to Enter Your Username!";
@@ -71,13 +94,19 @@ $insertDataSql = "INSERT INTO nametable (username, password)
 VALUES ('$enteredUsername', '$enteredPassword')";
 
 if ($formValid==true) {
-	if ($conn->query($insetDataSql) === TRUE) {
+	if ($conn->query($insertDataSql) === TRUE) {
     	echo "New record created successfully";
     	echo '<br />';
 	} else {
     	echo "Error: " . $insertDataSql . "<br>" . $conn->error;
 	}
 }
+
+/*if (mysqli_query($conn, $insertDataSql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}*/
 
 $conn->close();
 
