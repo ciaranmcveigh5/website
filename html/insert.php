@@ -43,6 +43,11 @@ if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
 
 $checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
 
+if($checkUsernameSql) {
+	$errorMessage = "username already in use";
+	$formValid = false;
+}
+
 /*if(mysqli_num_rows($checkUsernameSql)>=1) {
     $errorMessage = "name already exists";
     echo "<script type='text/javascript'>alert('$errorMessage');</script>";
