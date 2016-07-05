@@ -41,7 +41,7 @@ foreach($required as $field) {
 
 // Check Password
 if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
-
+	break;
 }else {
 	$errorMessage = "password must contain one upper case letter one lower case letter and one number";
 	$formValid = false;
@@ -62,8 +62,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$insertDataSql = "INSERT INTO nametable (username, password)
-VALUES ('$enteredUsername', '$enteredPassword')";
+$insertDataSql = "INSERT INTO nametable (username, password) VALUES ('$enteredUsername', '$enteredPassword')";
 
 if ($formValid==true) {
 	if ($conn->query($insertDataSql) === TRUE) {
