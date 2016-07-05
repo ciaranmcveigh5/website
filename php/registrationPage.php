@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$enteredUsername = $_POST['username'];
     $enteredPassword = $_POST['password'];
-    $confirmedPassword = $_POST['confirmedPassword'];
-    $required = array('username', 'password', 'confirmedPassword');
+    $confirmedPassword = $_POST['cPassword'];
+    $required = array('username', 'password', 'cPassword');
 
 
 	// Ensure fields are not empty
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		<br />
 
-		Confirm Password: <input type="password" name="confirmedPassword" maxlength="50" placeholder="Password" value="<?PHP print $confirmedPassword;?>" />
+		Confirm Password: <input type="password" name="cPassword" maxlength="50" placeholder="Password" value="<?PHP print $confirmedPassword;?>" />
 
 		<br />
 
