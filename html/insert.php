@@ -50,6 +50,11 @@ if($checkUsernameSql > 0) {
 	$formValid = false;
 }
 
+
+$verifyUsernameAndPasswordSql = "SELECT * FROM login WHERE username = $enteredUsername AND password = $enteredPassword"; // check that username and password match one found in database
+$result = mysql_query($SQL); // call query
+$num_rows = mysql_num_rows($result); // how many rows where returned in case of multiple matches
+
 /*if(mysqli_num_rows($checkUsernameSql)>=1) {
     $errorMessage = "name already exists";
     echo "<script type='text/javascript'>alert('$errorMessage');</script>";
