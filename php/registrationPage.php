@@ -7,6 +7,8 @@ $serverPassword = "password";
 $dbname = "website";
 $formValid = true;
 $errorMessage = "";
+$enteredUsername = "";
+$enteredPassword = "";
 
 function quote_smart($value, $handle) {
 
