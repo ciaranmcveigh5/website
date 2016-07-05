@@ -114,6 +114,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<input type="submit" value="submit" />
 
 	</form>
+
+	<P> <?PHP print $errorMessage;?> </P>
 	
 </body>
 
