@@ -7,8 +7,9 @@ $serverPassword = "password";
 $dbname = "website";
 $formValid = true;
 $errorMessage = "";
-$enteredUsername = "";
-$enteredPassword = "";
+// $enteredUsername = "";
+// $enteredPassword = "";
+// $confirmedPassword = "";
 
 function quote_smart($value, $handle) {
 
@@ -22,61 +23,61 @@ function quote_smart($value, $handle) {
    return $value;
 }
 
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
 
-// 	$enteredUsername = $_POST['username'];
-//     $enteredPassword = $_POST['password'];
-//     $confirmedPassword = $_POST['confirmedPassword'];
-//     $required = array('username', 'password', 'confirmedPassword');
+	$enteredUsername = $_POST['username'];
+    $enteredPassword = $_POST['password'];
+    $confirmedPassword = $_POST['confirmedPassword'];
+    $required = array('username', 'password', 'confirmedPassword');
 
 
-// // Ensure fields are not empty
-// foreach($required as $field) {
-// 	if(empty($_POST[$field])) {
-// 		$formValid = false;
-// 		if($formValid==false) {
-// 			$errorMessage = "Error, empty fields";
-// 			break;
-// 		}
-// 	}
-// }
+	// Ensure fields are not empty
+	foreach($required as $field) {
+		if(empty($_POST[$field])) {
+			$formValid = false;
+			if($formValid==false) {
+				$errorMessage = "Error, empty fields";
+				break;
+			}
+		}
+	}
 
-// // Check Password
-// if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
-// 	break;
-// }else {
-// 	$errorMessage = "password must contain one upper case letter one lower case letter and one number";
-// 	$formValid = false;
-// }
+	// Check Password
+	if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
+		break;
+	}else {
+		$errorMessage = "password must contain one upper case letter one lower case letter and one number";
+		$formValid = false;
+	}
 
-// $checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
+	$checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
 
-// if($checkUsernameSql) {
-// 	$errorMessage = "username already in use";
-// 	$formValid = false;
-// }
+	if($checkUsernameSql) {
+		$errorMessage = "username already in use";
+		$formValid = false;
+	}	
 
-// // Create connection
-// $conn = new mysqli($servername, $serverUsername, $serverPassword, $dbname);
+	// Create connection
+	$conn = new mysqli($servername, $serverUsername, $serverPassword, $dbname);
 
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// } 
+	// Check connection
+	if ($conn->connect_error) {
+    	die("Connection failed: " . $conn->connect_error);
+	} 
 
-// $insertDataSql = "INSERT INTO nametable (username, password) VALUES ('$enteredUsername', '$enteredPassword')";
+	$insertDataSql = "INSERT INTO nametable (username, password) VALUES ('$enteredUsername', '$enteredPassword')";
 
-// if ($formValid==true) {
-// 	if ($conn->query($insertDataSql) === TRUE) {
-// 		header ("Location: loginPage.php");
-// 	} else {
-//     	$errorMessage = ""Error: " . $insertDataSql . "<br>" . $conn->error";
-// 	}
-// }
+	if ($formValid==true) {
+		if ($conn->query($insertDataSql) === TRUE) {
+			header ("Location: loginPage.php");
+		} else {
+    		$errorMessage = ""Error: " . $insertDataSql . "<br>" . $conn->error";
+		}
+	}
 
-// $conn->close();
+	$conn->close();
 
-// }
+}
 
 ?>
 
@@ -105,7 +106,7 @@ function quote_smart($value, $handle) {
 
 		<br />
 
-		Confirm Password: <input type="password" name="confirmedPassword" maxlength="50" placeholder="Password" value="" />
+		Confirm Password: <input type="password" name="confirmedPassword" maxlength="50" placeholder="Password" value="<?PHP print $confirmedPassword;?>" />
 
 		<br />
 
