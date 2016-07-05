@@ -5,11 +5,10 @@ $serverIP = "localhost"; // change to public ip of another vm if mysql is runnin
 $serverUsername = "cimcveigh";
 $serverPassword = "password";
 $dbName = "website";
-$tableName = "nametable"
+$tableName = "nametable";
+$enteredUsername = "";
+$enteredPassword = "";
 $errorMessage = "";
-
-
-
 
 //==========================================
 //	ESCAPE DANGEROUS SQL CHARACTERS
@@ -27,7 +26,6 @@ function quote_smart($value, $handle) {
    }
    return $value;
 }
-
 
 
 
@@ -104,13 +102,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // check if the form has been posted
 
 <body>
 
-	<form action="loginPage.php" method="post" >
+	<form name="loginForm" method="post" action="loginPage.php" >
 	  
-		Username: <input type="text" name="username" maxlength="50" placeholder="Username" value="" />
+		Username: <input type="text" name="username" maxlength="50" placeholder="Username" value="<?PHP print $enteredUsername;?>" />
 
 		<br />
 
-		Password: <input type="password" name="password" maxlength="50" placeholder="Password" value="" />
+		Password: <input type="password" name="password" maxlength="50" placeholder="Password" value="<?PHP print $enteredPassword;?>" />
 
 		<br />
 
