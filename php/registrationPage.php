@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$enteredUsername = $_POST['username'];
     $enteredPassword = $_POST['password'];
     $confirmedPassword = $_POST['cPassword'];
+    
     $required = array('username', 'password', 'cPassword');
 
 
@@ -43,39 +44,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	// Check Password
-	if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
-		break;
-	}else {
-		$errorMessage = "password must contain one upper case letter one lower case letter and one number";
-		$formValid = false;
-	}
+	// if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
+	// 	break;
+	// }else {
+	// 	$errorMessage = "password must contain one upper case letter one lower case letter and one number";
+	// 	$formValid = false;
+	// }
 
-	$checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
+	// $checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
 
-	if($checkUsernameSql) {
-		$errorMessage = "username already in use";
-		$formValid = false;
-	}	
+	// if($checkUsernameSql) {
+	// 	$errorMessage = "username already in use";
+	// 	$formValid = false;
+	// }	
 
-	// Create connection
-	$conn = new mysqli($servername, $serverUsername, $serverPassword, $dbname);
+	// // Create connection
+	// $conn = new mysqli($servername, $serverUsername, $serverPassword, $dbname);
 
-	// Check connection
-	if ($conn->connect_error) {
-    	die("Connection failed: " . $conn->connect_error);
-	} 
+	// // Check connection
+	// if ($conn->connect_error) {
+ //    	die("Connection failed: " . $conn->connect_error);
+	// } 
 
-	$insertDataSql = "INSERT INTO nametable (username, password) VALUES ('$enteredUsername', '$enteredPassword')";
+	// $insertDataSql = "INSERT INTO nametable (username, password) VALUES ('$enteredUsername', '$enteredPassword')";
 
-	if ($formValid==true) {
-		if ($conn->query($insertDataSql) === TRUE) {
-			header ("Location: loginPage.php");
-		} else {
-    		$errorMessage = ""Error: " . $insertDataSql . "<br>" . $conn->error";
-		}
-	}
+	// if ($formValid==true) {
+	// 	if ($conn->query($insertDataSql) === TRUE) {
+	// 		header ("Location: loginPage.php");
+	// 	} else {
+ //    		$errorMessage = ""Error: " . $insertDataSql . "<br>" . $conn->error";
+	// 	}
+	// }
 
-	$conn->close();
+	// $conn->close();
 
 }
 
