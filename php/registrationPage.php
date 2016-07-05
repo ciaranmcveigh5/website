@@ -93,13 +93,13 @@ $conn->close();
 
 <body>
 
-	<form action="registrationPage.php" method="post" >
+	<form name="registrationForm" method="post" action="registrationPage.php" >
 	  
-		Username: <input type="text" name="username" maxlength="50" placeholder="Username" value="" />
+		Username: <input type="text" name="username" maxlength="50" placeholder="Username" value="<?PHP print $enteredUsername;?>" />
 
 		<br />
 
-		Password: <input type="password" name="password" maxlength="50" placeholder="Password" value="" />
+		Password: <input type="password" name="password" maxlength="50" placeholder="Password" value="<?PHP print $enteredPassword;?>" />
 
 		<br />
 
