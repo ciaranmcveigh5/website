@@ -8,7 +8,7 @@ session_start();
 //   	exit;
 //}
 
-echo "$_SESSION['user']";
+// echo "$_SESSION['user']";
 
 // function signOut() {
 // 	session_unset();
