@@ -6,11 +6,11 @@ require('dbconnect.php');
 //   	exit;
 // }
 
-// echo "$_SESSION['user']"
+echo "$_SESSION['user']";
 
-// function signOut() {
-// 	session_destroy();
-// }
+function signOut() {
+	session_destroy();
+}
 
 
 ?>
