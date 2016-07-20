@@ -8,14 +8,14 @@ session_start();
 //   	exit;
 //}
 
-// echo "$_SESSION['user']";
+echo "$_SESSION['user']";
 
-function signOut() {
-	session_unset();
- 	session_destroy();
-	header("Location: login.php");
-	print("function hit");
-}
+// function signOut() {
+// 	session_unset();
+//  	session_destroy();
+// 	header("Location: login.php");
+// 	print("function hit");
+// }
 
 //print "$_SESSION['user']";
 
@@ -37,7 +37,7 @@ function signOut() {
 
 <body>
 
-<button type="button" onclick="signOut()">Sign Out</button>
+<button type="button" onclick="window.location.href='logout.php'">Sign Out</button>
 	
 </body>
 
