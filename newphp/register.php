@@ -1,6 +1,11 @@
 <?php
 require('dbconnect.php');
 
+if ( isset($_SESSION['user'])!="" ) {
+   header("Location: home.php");
+   exit;
+}
+
 if (isset($_POST['submit'])) // check submit button has been selected
 {
  $pass1 = $_POST['pass1'];

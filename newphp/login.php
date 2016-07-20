@@ -1,6 +1,11 @@
 <?php
 require('dbconnect.php');
 
+if ( isset($_SESSION['user'])!="" ) {
+  	header("Location: home.php");
+  	exit;
+}
+
 if(isset($_POST['submit']))
 {
  $uname = mysql_escape_string($_POST['uname']);
@@ -8,13 +13,16 @@ if(isset($_POST['submit']))
  //$pass = md5($pass);
 
  $check = mysql_query("SELECT * FROM `nametable` WHERE `username` = '$uname' AND `password` = '$pass'");
+ $row=mysql_fetch_array($check);
+
+
  if(mysql_num_rows($check) >= 1){
-  echo "You are now logged in!";
-  exit();
+ 	session_start();
+ 	$_SESSION["user"] = $row['username'];
+ 	header("Location: home.php");
  }
  else{
-
-  echo "Wrong password";
+  	echo "Wrong password";
  }
 }
 else{
