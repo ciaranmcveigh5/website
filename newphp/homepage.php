@@ -6,11 +6,11 @@ if ( isset($_SESSION['user'])="" ) {
   	exit;
 }
 
-echo "$_SESSION['user']"
+// echo "$_SESSION['user']"
 
-function signOut() {
-	session_destroy();
-}
+// function signOut() {
+// 	session_destroy();
+// }
 
 
 ?>
