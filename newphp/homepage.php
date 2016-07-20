@@ -51,9 +51,9 @@ if (isset($_POST['submit'])) // check submit button has been selected
 
 <body>
 
-<form action="demoform.asp">
+<form action="homepage.php" method="POST">
 	<input type="text" name="story" style="width:300px; height:200px;" maxlength="255"><br>
-	<input type="submit" value="Register" name="submit" />
+	<input type="submit" value="Submit" name="submit" />
 </form>
 
 <button type="button" onclick="window.location.href='logout.php'">Sign Out</button>
