@@ -19,7 +19,7 @@ if(isset($_POST['submit']))
  if(mysql_num_rows($check) >= 1){
  	session_start();
  	$_SESSION["user"] = $row['username'];
- 	header("Location: home.php");
+ 	header("Location: homepage.php");
  }
  else{
   	echo "Wrong password";

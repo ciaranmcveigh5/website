@@ -8,4 +8,30 @@ if ( isset($_SESSION['user'])!="" ) {
 
 echo "$_SESSION['user']"
 
+function signOut() {
+	session_destroy();
+}
+
+
 ?>
+
+
+<html>
+
+<head>
+
+<title>Homepage</title>
+
+<style type="text/css">
+
+</style>
+
+</head>
+
+<body>
+
+<button type="button" onclick="signOut()">Sign Out</button>
+	
+</body>
+
+</html>
