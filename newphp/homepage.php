@@ -14,7 +14,8 @@ if (isset($_POST['submit'])) // check submit button has been selected
 {
 	$story = mysql_escape_string($_POST['story']);
 	mysql_query("INSERT INTO nametable (`user_id`, `story`) VALUES ('$_SESSION[user_id]', '$story')") or die(mysql_error());
-	$_SESSION[story] = $story
+	$_SESSION[story] = $story;
+}
 
 //if ( isset($_SESSION['user'])="" ) {
 // 	header("Location: login.php");
