@@ -8,9 +8,9 @@ require('dbconnect.php');
 
 echo "$_SESSION['user']";
 
-function signOut() {
-	session_destroy();
-}
+// function signOut() {
+// 	session_destroy();
+// }
 
 
 ?>
