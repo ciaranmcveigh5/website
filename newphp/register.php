@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) // check submit button has been selected
    if (mysql_num_rows($check)>=1) echo "Username already taken";
    //Put everyting in DB
    else{
-   mysql_query("INSERT INTO nametable (`username`, `password`) VALUES (NULL, '$uname', '$pass1')") or die(mysql_error());
+   mysql_query("INSERT INTO nametable (`username`, `password`) VALUES ('$uname', '$pass1')") or die(mysql_error());
    echo "Registration Successful";
    }
  }
