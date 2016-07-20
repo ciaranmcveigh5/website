@@ -5,7 +5,7 @@ if(isset($_POST['submit']))
 {
  $uname = mysql_escape_string($_POST['uname']);
  $pass = mysql_escape_string($_POST['pass']);
- $pass = md5($pass);
+ //$pass = md5($pass);
 
  $check = mysql_query("SELECT * FROM `nametable` WHERE `username` = '$uname' AND `password` = '$pass'");
  if(mysql_num_rows($check) >= 1){
