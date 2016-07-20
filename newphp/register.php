@@ -13,13 +13,13 @@ if (isset($_POST['submit'])) // check submit button has been selected
    $pass1 = mysql_escape_string($_POST['pass1']);
    $pass2 = mysql_escape_string($_POST['pass2']);
 
-   $pass1 = md5($pass1);
+   //$pass1 = md5($pass1);
    //Check if username is taken
    $check = mysql_query("SELECT * FROM nametable WHERE username = '$uname'")or die(mysql_error());
    if (mysql_num_rows($check)>=1) echo "Username already taken";
    //Put everyting in DB
    else{
-   mysql_query("INSERT INTO `nametable` (`username`, `password`) VALUES (NULL, '$uname', '$pass1')") or die(mysql_error());
+   mysql_query("INSERT INTO nametable (`username`, `password`) VALUES (NULL, '$uname', '$pass1')") or die(mysql_error());
    echo "Registration Successful";
    }
  }
