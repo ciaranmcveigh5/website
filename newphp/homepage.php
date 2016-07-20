@@ -1,16 +1,21 @@
 <?php
 require('dbconnect.php');
+print("Hello World");
 
-// if ( isset($_SESSION['user'])="" ) {
+//if ( isset($_SESSION['user'])="" ) {
 // 	header("Location: login.php");
 //   	exit;
-// }
+//}
 
-echo "$_SESSION['user']";
+// echo "$_SESSION['user']";
 
-// function signOut() {
-// 	session_destroy();
-// }
+function signOut() {
+ 	session_destroy();
+	header("Location: login.php");
+	print("function hit");
+}
+
+//print "$_SESSION['user']";
 
 
 ?>
