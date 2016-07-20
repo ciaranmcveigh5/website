@@ -44,12 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	//Check Password
-	if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
-		break;
-	}else {
-		$errorMessage = "password must contain one upper case letter one lower case letter and one number";
-		$formValid = false;
-	}
+	// if(preg_match('/[A-Z]+[a-z]+[0-9]+/', $enteredPassword)) {
+	// 	break;
+	// }else {
+	// 	$errorMessage = "password must contain one upper case letter one lower case letter and one number";
+	// 	$formValid = false;
+	// }
 
 	$checkUsernameSql = mysql_query("SELECT username FROM nametable WHERE username=$enteredUsername");
 
