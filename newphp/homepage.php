@@ -1,6 +1,7 @@
 <?php
 require('dbconnect.php');
-print("Hello World");
+// print("Hello World");
+session_start();
 
 //if ( isset($_SESSION['user'])="" ) {
 // 	header("Location: login.php");
@@ -10,6 +11,7 @@ print("Hello World");
 // echo "$_SESSION['user']";
 
 function signOut() {
+	session_unset();
  	session_destroy();
 	header("Location: login.php");
 	print("function hit");
