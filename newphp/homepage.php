@@ -3,6 +3,10 @@ require('dbconnect.php');
 // print("Hello World");
 session_start();
 
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+
 //if ( isset($_SESSION['user'])="" ) {
 // 	header("Location: login.php");
 //   	exit;
