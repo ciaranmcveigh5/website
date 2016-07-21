@@ -18,13 +18,13 @@ if (isset($_POST['submit'])) // check submit button has been selected
 	$_SESSION[story] = $story;
 }
 
-$result = mysql_query("SELECT story FROM Customers");
+$result = mysql_query("SELECT story FROM stories");
 $storeArray = Array();
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
     $storeArray[] =  $row['names'];  
 }
 
-print $storeArray
+print $storeArray;
 
 //if ( isset($_SESSION['user'])="" ) {
 // 	header("Location: login.php");
