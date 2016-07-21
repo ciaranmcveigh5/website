@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) // check submit button has been selected
 $result = mysql_query("SELECT story FROM stories");
 $storeArray = Array();
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    $storeArray[] =  $row['names'];  
+    $storeArray[] =  $row['story'];  
 }
 
 print $storeArray;
