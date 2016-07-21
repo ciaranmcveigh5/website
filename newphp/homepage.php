@@ -10,6 +10,14 @@ echo '</pre>';
 print_r($_SESSION);
 print_r($_SESSION[user_id]);
 
+$result = mysql_query("SELECT story FROM stories");
+$storeArray = Array();
+while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    $storeArray[] =  $row['story'];  
+}
+
+print_r($storeArray);
+
 if (isset($_POST['submit'])) // check submit button has been selected
 {
 	$story = mysql_escape_string($_POST['story']);
@@ -17,14 +25,6 @@ if (isset($_POST['submit'])) // check submit button has been selected
 	// $curent_story == mysql_query("SELECT story FROM Customers");
 	$_SESSION[story] = $story;
 }
-
-$result = mysql_query("SELECT story FROM stories");
-$storeArray = Array();
-while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    $storeArray[] =  $row['story'];  
-}
-
-print $storeArray;
 
 //if ( isset($_SESSION['user'])="" ) {
 // 	header("Location: login.php");
@@ -68,7 +68,7 @@ print $storeArray;
 <button type="button" onclick="window.location.href='logout.php'">Sign Out</button>
 
 <p> <?PHP print $_SESSION[story];?> </p>
-<p> <?PHP print $storeArray;?> </p>
+<p> <?PHP print_r($storeArray);?> </p>
 </body>
 
 </html>
