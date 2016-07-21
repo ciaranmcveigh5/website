@@ -14,7 +14,14 @@ if (isset($_POST['submit'])) // check submit button has been selected
 {
 	$story = mysql_escape_string($_POST['story']);
 	mysql_query("INSERT INTO stories (`user_id`, `story`) VALUES ('$_SESSION[user_id]', '$story')") or die(mysql_error());
+	// $curent_story == mysql_query("SELECT story FROM Customers");
 	$_SESSION[story] = $story;
+}
+
+$result = mysql_query("SELECT story FROM Customers");
+$storeArray = Array();
+while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    $storeArray[] =  $row['names'];  
 }
 
 //if ( isset($_SESSION['user'])="" ) {
@@ -58,8 +65,8 @@ if (isset($_POST['submit'])) // check submit button has been selected
 
 <button type="button" onclick="window.location.href='logout.php'">Sign Out</button>
 
-<P> <?PHP print $_SESSION[story];?> </P>
-	
+<p> <?PHP print $_SESSION[story];?> </p>
+<p> <?PHP print $storeArray;?> </p>
 </body>
 
 </html>
