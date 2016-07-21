@@ -24,6 +24,8 @@ while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
     $storeArray[] =  $row['names'];  
 }
 
+print $storeArray
+
 //if ( isset($_SESSION['user'])="" ) {
 // 	header("Location: login.php");
 //   	exit;
